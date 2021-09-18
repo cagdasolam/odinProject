@@ -1,3 +1,20 @@
+const container = document.querySelector('#container');
+const scores = document.querySelector('#scores');
+const result = document.querySelector('#result');
+
+const message = document.createElement('message');
+const playerScoreText = document.createElement('playerScore');
+const computerScoreText = document.createElement('computerScore');
+
+let playerScore = 0;
+let computerScore = 0;
+
+playerScoreText.textContent = playerScore;
+computerScoreText.textContent = computerScore
+
+scores.appendChild(playerScoreText);
+scores.appendChild(computerScoreText);
+
 function computerPlay() {
     randomNumber = Math.floor(Math.random() * 3);
     switch (randomNumber) {
@@ -11,55 +28,47 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    console.log("you selected %s, computer selected %s.", playerSelection, computerSelection)
-    if (playerSelection == "rock" && computerSelection == "scissors") {
-        console.log("You win! " + playerSelection + " beats " + computerSelection + ".");
-        return true
-    }
-    if (playerSelection == "scissors" && computerSelection == "paper") {
-        console.log("You win! " + playerSelection + " beats " + computerSelection + ".");
-        return true
-    }
-    if (playerSelection == "paper" && computerSelection == "rock") {
-        console.log("You win! " + playerSelection + " beats " + computerSelection + ".");
-        return true
-    }
-    else {
-        console.log("You lose! " + computerSelection + " beats " + playerSelection + ".");
-        return false
-    }
-}
 
-function game() {
-    let numberOfTurn = 0;
-    let playerScore = 0;
-    let computerScore = 0;
-
-    while (numberOfTurn < 5) {
-        let playerSelection = prompt("What's your choice?").toLowerCase();
-        let computerSelection = computerPlay();
+    if (playerScore == 5 || computerScore == 5) {
+        location.reload();
+    } else {
+        message.textContent = "You selected " + playerSelection + " computer selected " + computerSelection + ".";
+        container.appendChild(message);
 
         if (playerSelection == computerSelection) {
-            console.log("Draw");
-            numberOfTurn++;
-            continue;
+            message.textContent += "\nIt's a tie!"
         }
-
-        if (playRound(playerSelection, computerSelection)) {
+        else if (playerSelection == "rock" && computerSelection == "scissors" ||
+            playerSelection == "scissors" && computerSelection == "paper" ||
+            playerSelection == "paper" && computerSelection == "rock") {
+            // console.log("You win! " + playerSelection + " beats " + computerSelection + ".");
+            message.textContent += "\nYou win! " + playerSelection + " beats " + computerSelection + ".";
             playerScore++;
+            playerScoreText.textContent = playerScore;
+
+            if (playerScore == 5) {
+                result.textContent = "YOU WIN!!"
+            }
         }
         else {
-            computerScore++;
-        }
-        numberOfTurn++;
-    }
+            // console.log("You lose! " + computerSelection + " beats " + playerSelection + ".");
+            message.textContent += "\nYou lose! " + computerSelection + " beats " + playerSelection + ".";
 
-    if (playerScore > computerScore) {
-        console.log("YOU WİN!!");
-    }
-    else {
-        console.log("YOU LOSE!!");
+            computerScore++;
+            computerScoreText.textContent = computerScore
+
+            if (computerScore == 5) {
+                result.textContent = "YOU LOSE!!"
+            }
+        }
     }
 }
 
-game();
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+
+        playRound(button.id, computerPlay());
+    });
+});
