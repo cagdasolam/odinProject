@@ -1,0 +1,10 @@
+@import "header.css";
+@import "hero.css";
+@import "info.css";
+@import "quote.css";
+@import "register.css";
+@import "footer.css";
+
+body{
+    font-family:"Roboto", sans-serif;
+}

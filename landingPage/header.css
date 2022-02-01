@@ -1,0 +1,37 @@
+header{
+	background-color: #1f2937;
+	margin: 0%;
+}
+
+header nav {
+	background-color: #1f2937;
+	padding: 16px 0px;
+  }
+
+.logo{
+	font-size: 24px;
+	color: #f9faf8;
+	font-weight: bold;
+}
+
+.flex-ul {
+	list-style: none;
+	display: flex;
+	gap: 16px;
+	padding: 0px;
+	color: #f9faf8;
+	margin: 0px;
+  }
+
+.head-cont{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.header-nav{
+	display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60vw;
+}

@@ -1,0 +1,30 @@
+.register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.register-box{
+    background-color: #3882f6;
+    color: #f9faf8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+    width: 700px;
+    height: 150px;
+    border-radius: 5px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.register-box button{
+    background-color: inherit;
+    color: #f9faf8;
+    margin-top: 20px;
+    padding: 8px 24px;
+	border-radius: 10px;
+    border: 2px solid #f9faf8;
+}

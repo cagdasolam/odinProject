@@ -1,0 +1,26 @@
+.quote{
+    background-color: #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.txt p{
+    font-size: 36px;
+    font-style: italic;
+    font-weight: lighter;
+    color: #1f2937;
+    max-width: 700px;
+}
+
+.txt aside{
+    display: flex;
+    justify-content: end;
+    font-weight: bold;
+    color: #1f2937;
+    font-size: 24px;
+
+}
